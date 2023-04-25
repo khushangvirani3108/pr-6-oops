@@ -1,0 +1,51 @@
+<h1 id="res1"></h1>
+<h1 id="res2"></h1>
+<script type="text/javascript">
+    class Student {
+        constructor(name, physics, chemistry, biology, maths, computer) {
+            this.name = name;
+            this.physics = physics;
+            this.chemistry = chemistry;
+            this.biology = biology;
+            this.maths = maths;
+            this.computer = computer;
+        }
+
+        Percentage() {
+            let totalMarks = this.physics + this.chemistry + this.biology + this.maths + this.computer;
+            let percentage = (totalMarks / 500) * 100;
+            return percentage.toFixed(2);
+        }
+
+        Grade() {
+            let percentage = this.Percentage();
+            let grade;
+
+            if (percentage >= 90) {
+                grade = 'A';
+            } else if (percentage >= 80) {
+                grade = 'B';
+            } else if (percentage >= 70) {
+                grade = 'C';
+            } else if (percentage >= 60) {
+                grade = 'D';
+            } else if (percentage >= 50) {
+                grade = 'E';
+            } else {
+                grade = 'F';
+            }
+
+            return grade;
+        }
+    }
+
+    let physics = parseInt(prompt("Enter Physics Marks"));
+    let chemistry = parseInt(prompt("Enter chemistry Marks"));
+    let biology = parseInt(prompt("Enter biology Marks"));
+    let maths = parseInt(prompt("Enter mathematics Marks"));
+    let computer = parseInt(prompt("Enter computer Marks"));
+
+    let student = new Student(name, physics, chemistry, biology, maths, computer);
+    document.getElementById('res1').innerHTML = `Percentage: ${student.Percentage()}%`;
+    document.getElementById('res2').innerHTML = `Grade: ${student.Grade()}`;
+</script>
